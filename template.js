@@ -28,23 +28,6 @@
   const panelHTML = `
 <div class="settings-panel" id="sp">
   <div class="setting-group">
-    <div class="setting-label">字體大小</div>
-    <div class="fs-ctrl">
-      <button class="fs-btn" onclick="chgFs(-1)">A−</button>
-      <input type="range" class="fs-slider" id="fsl" min="13" max="22" value="16" oninput="setFs(this.value)">
-      <button class="fs-btn" onclick="chgFs(1)">A+</button>
-      <span class="fs-val" id="fsv">16px</span>
-    </div>
-  </div>
-  <div class="setting-group">
-    <div class="setting-label">行距</div>
-    <div class="ctrl-btns">
-      <button class="ctrl-btn lh-btn" data-lh="1.7" onclick="setLh(1.7,this)">緊湊</button>
-      <button class="ctrl-btn lh-btn active" data-lh="2.1" onclick="setLh(2.1,this)">舒適</button>
-      <button class="ctrl-btn lh-btn" data-lh="2.6" onclick="setLh(2.6,this)">寬鬆</button>
-    </div>
-  </div>
-  <div class="setting-group">
     <div class="setting-label">字型</div>
     <div class="ctrl-btns">
       <button class="ctrl-btn font-btn active" data-font="Noto Serif TC" onclick="setFont('Noto Serif TC',this)">明體</button>
