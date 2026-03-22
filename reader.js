@@ -52,13 +52,20 @@
   document.head.appendChild(fontTag);
 
   /* ── 字體大小 ── */
+  const fsTag = document.createElement('style');
+  document.head.appendChild(fsTag);
+
   window.setFs = function(v) {
     v = Math.min(22, Math.max(13, parseInt(v)));
     saved.fs = String(v);
     localStorage.setItem('noble-fs', saved.fs);
-    // 同時設定 CSS 變數和 body 的 font-size
-    document.documentElement.style.setProperty('--fs', v + 'px');
-    document.body.style.fontSize = v + 'px';
+    // 用 style 標籤強制覆蓋所有元素字體大小
+    fsTag.textContent = `
+      body { font-size: ${v}px !important; }
+      body p, body li, body .prose, body .point-text,
+      body .concept-body, body .link-desc, body .article-desc,
+      body .quote-item p, body .article-lede { font-size: ${v}px !important; }
+    `;
     const fsl = document.getElementById('fsl');
     const fsv = document.getElementById('fsv');
     if (fsl) fsl.value = v;
