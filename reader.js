@@ -56,7 +56,9 @@
     v = Math.min(22, Math.max(13, parseInt(v)));
     saved.fs = String(v);
     localStorage.setItem('noble-fs', saved.fs);
+    // 同時設定 CSS 變數和 body 的 font-size
     document.documentElement.style.setProperty('--fs', v + 'px');
+    document.body.style.fontSize = v + 'px';
     const fsl = document.getElementById('fsl');
     const fsv = document.getElementById('fsv');
     if (fsl) fsl.value = v;
