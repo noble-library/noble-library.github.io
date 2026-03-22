@@ -59,13 +59,8 @@
     v = Math.min(22, Math.max(13, parseInt(v)));
     saved.fs = String(v);
     localStorage.setItem('noble-fs', saved.fs);
-    // 用 style 標籤強制覆蓋所有元素字體大小
-    fsTag.textContent = `
-      body { font-size: ${v}px !important; }
-      body p, body li, body .prose, body .point-text,
-      body .concept-body, body .link-desc, body .article-desc,
-      body .quote-item p, body .article-lede { font-size: ${v}px !important; }
-    `;
+    // rem 是相對於 html，所以設定 html 的 font-size
+    document.documentElement.style.fontSize = v + 'px';
     const fsl = document.getElementById('fsl');
     const fsv = document.getElementById('fsv');
     if (fsl) fsl.value = v;
