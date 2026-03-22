@@ -1,6 +1,6 @@
 /* ══════════════════════════════
    Noble 知識書店 — 電子書閱讀器
-   reader.js · 全站共用功能
+   reader.js · 全站共用功能 v3
 ══════════════════════════════ */
 
 (function () {
@@ -13,54 +13,68 @@
     theme: localStorage.getItem('noble-theme') || '',
   };
 
-  /* ── 套用設定到頁面 ── */
+  /* ── 字型 style 標籤 ── */
+  const fontTag = document.createElement('style');
+  document.head.appendChild(fontTag);
+
+  /* ── 字體大小 style 標籤 ── */
+  const fsTag = document.createElement('style');
+  document.head.appendChild(fsTag);
+
+  /* ── 套用字體大小：只針對內文，不動版面 ── */
+  function applyFs(v) {
+    // 只改這些內文 class，不碰 rem 版面
+    fsTag.textContent = `
+      .prose p,
+      .article-lede,
+      .point-text,
+      .concept-body,
+      .link-desc,
+      .quote-item p,
+      .summary p,
+      .about-wrap p,
+      .page-desc,
+      .article-desc { font-size: ${v}px !important; line-height: ${saved.lh} !important; }
+    `;
+  }
+
+  /* ── 套用所有設定到頁面 ── */
   function applyAll() {
-    const r = document.documentElement;
-    r.style.setProperty('--fs',   saved.fs + 'px');
-    r.style.setProperty('--lh',   saved.lh);
+    // 行距
+    document.documentElement.style.setProperty('--lh', saved.lh);
+    // 主題
     if (saved.theme) document.body.classList.add(saved.theme);
-
-    // 字型注入
-    fontTag.textContent = saved.font !== 'Noto Serif TC'
-      ? `body, body * { font-family: '${saved.font}', sans-serif !important; }`
-      : '';
-
-    // 更新 UI 狀態
+    // 字型
+    if (saved.font !== 'Noto Serif TC') {
+      fontTag.textContent = `body, body * { font-family: '${saved.font}', sans-serif !important; }`;
+    }
+    // 字體大小
+    applyFs(parseInt(saved.fs));
+    // 更新 UI
     const fsl = document.getElementById('fsl');
     const fsv = document.getElementById('fsv');
     if (fsl) fsl.value = saved.fs;
     if (fsv) fsv.textContent = saved.fs + 'px';
-
     // 行距按鈕
     document.querySelectorAll('.lh-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.lh === saved.lh);
     });
-
     // 字型按鈕
     document.querySelectorAll('.font-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.font === saved.font);
     });
-
     // 主題按鈕
     document.querySelectorAll('.theme-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.theme === saved.theme);
     });
   }
 
-  /* ── 字型 style 標籤 ── */
-  const fontTag = document.createElement('style');
-  document.head.appendChild(fontTag);
-
   /* ── 字體大小 ── */
-  const fsTag = document.createElement('style');
-  document.head.appendChild(fsTag);
-
   window.setFs = function(v) {
     v = Math.min(22, Math.max(13, parseInt(v)));
     saved.fs = String(v);
     localStorage.setItem('noble-fs', saved.fs);
-    // rem 是相對於 html，所以設定 html 的 font-size
-    document.documentElement.style.fontSize = v + 'px';
+    applyFs(v);
     const fsl = document.getElementById('fsl');
     const fsv = document.getElementById('fsv');
     if (fsl) fsl.value = v;
@@ -75,6 +89,8 @@
     saved.lh = String(v);
     localStorage.setItem('noble-lh', saved.lh);
     document.documentElement.style.setProperty('--lh', v);
+    // 行距改變時也重新套用字體大小（因為 line-height 一起寫在 fsTag 裡）
+    applyFs(parseInt(saved.fs));
     document.querySelectorAll('.lh-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
   };
