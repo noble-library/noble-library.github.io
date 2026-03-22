@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
 
 :root {
   --bg: #f5f0e8; --bg2: #ede6d6; --bg3: #faf7f2;
@@ -6,7 +6,7 @@
   --accent: #c4956a; --accent-dark: #8b6343;
   --accent-bg: rgba(196,149,106,.08);
   --border: rgba(26,18,8,.1); --shadow: 0 2px 16px rgba(26,18,8,.08);
-  --font: 'Noto Serif TC', serif;
+  --font: 'Noto Sans TC', sans-serif;
   --lh: 2.1;
 }
 body.night {
