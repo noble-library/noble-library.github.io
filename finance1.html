@@ -3,192 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>你不是沒錢，你是沒有「財商思維」｜Noble 的閱讀與思考</title>
+<title>你不是沒錢，你是沒有「財商思維」｜財商覺醒 #01</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
-:root{--bg:#f5f0e8;--bg2:#ede6d6;--bg3:#faf7f2;--text:#1a1208;--text-soft:#6b5a3e;--text-mute:#9a8570;--accent:#c4956a;--accent-dark:#8b6343;--accent-bg:rgba(196,149,106,.08);--border:rgba(26,18,8,.1);--shadow:0 2px 16px rgba(26,18,8,.08);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.8;}
-nav{position:fixed;top:0;width:100%;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);}
-.logo{font-size:1rem;font-weight:600;color:var(--accent-dark);text-decoration:none;}
-.logo span{color:var(--accent);}
-.nav-links{list-style:none;display:flex;gap:1.8rem;}
-.nav-links a{color:var(--text-soft);text-decoration:none;font-size:.82rem;font-family:'Noto Sans TC',sans-serif;transition:color .3s;}
-.nav-links a:hover{color:var(--accent);}
-/* 閱讀進度條 */
-#bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;width:0;transition:width .1s;}
-/* 主要內容 */
-.reader{max-width:680px;margin:0 auto;padding:6rem 2rem 5rem;}
-.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--text-mute);font-family:'Noto Sans TC',sans-serif;margin-bottom:2.5rem;}
-.bc-link{color:var(--text-soft);text-decoration:none;}
-.bc-link:hover{color:var(--accent);}
-/* 文章頭部 */
-.article-series{font-size:.65rem;letter-spacing:.22em;color:var(--text-mute);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:.6rem;}
-.article-title{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:600;color:var(--text);line-height:1.35;margin-bottom:1.2rem;}
-.article-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
-.badge{font-size:.65rem;padding:.25rem .8rem;border-radius:2rem;font-family:'Noto Sans TC',sans-serif;}
-.badge-cat{border:1px solid var(--accent);color:var(--accent-dark);}
-.badge-info{border:1px solid var(--border);color:var(--text-mute);}
-.article-lede{font-size:1rem;line-height:1.9;border-left:3px solid var(--accent);padding:.9rem 1.3rem;background:var(--accent-bg);border-radius:0 .3rem .3rem 0;margin-bottom:2.5rem;}
-/* 章節 */
-.chapter{margin-bottom:2.5rem;}
-.chapter-title{font-size:.72rem;letter-spacing:.2em;color:var(--text-mute);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
-.prose p{margin-bottom:1.2rem;color:var(--text);line-height:2.1;}
-/* 論點 */
-.points{display:flex;flex-direction:column;gap:.8rem;}
-.point{padding:.9rem 1.2rem;background:rgba(26,18,8,.04);border-left:2px solid var(--accent);border-radius:0 .3rem .3rem 0;}
-.point-num{font-size:.62rem;color:var(--text-mute);font-family:'Inter',sans-serif;letter-spacing:.15em;margin-bottom:.3rem;}
-.point-text{color:var(--text);line-height:1.9;}
-.point-text strong{color:var(--accent-dark);}
-/* 金句 */
-.quotes{display:flex;flex-direction:column;gap:.8rem;}
-.quote-item{padding:.8rem 1.2rem;border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 .3rem .3rem 0;}
-.quote-item p{font-style:italic;color:var(--text-soft);margin:0;}
-/* 總結框 */
-.summary{padding:1.8rem;text-align:center;background:var(--bg2);border:1px solid var(--border);border-radius:.6rem;margin:2rem 0;}
-.summary p{font-size:1em;color:var(--text);line-height:2;}
-/* 下一篇 */
-.next-article{display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding:1.2rem 1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:.6rem;text-decoration:none;transition:border-color .25s;}
-.next-article:hover{border-color:var(--accent);}
-.next-label{font-size:.65rem;color:var(--text-mute);font-family:'Inter',sans-serif;letter-spacing:.15em;margin-bottom:.3rem;}
-.next-title{font-size:.92rem;color:var(--text);font-weight:600;}
-.next-sub{font-size:.78rem;color:var(--text-soft);margin-top:.2rem;}
-.next-arrow{font-size:1.2rem;color:var(--accent);}
-/* 標籤 */
-.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
-.tag-item{border:1px solid var(--border);color:var(--text-mute);font-size:.68rem;padding:.25rem .8rem;border-radius:2rem;font-family:'Noto Sans TC',sans-serif;}
-/* 頁尾 */
-.ebook-footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'Noto Sans TC',sans-serif;font-size:.72rem;color:var(--text-mute);}
-.progress-bar{width:90px;height:2px;background:var(--border);border-radius:1px;margin-top:.3rem;overflow:hidden;}
-.progress-fill{height:100%;background:var(--accent);}
-footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--text-mute);font-size:.78rem;font-family:'Noto Sans TC',sans-serif;}
-footer span{color:var(--accent-dark);}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap');
+:root {
+  --outer: #dce8f0;
+  --blue: #5b8fa8;
+  --text: #2d3748;
+  --text-soft: #5a6a7a;
+  --text-mute: #8896a5;
+  --border: #e8ecf2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--outer); font-family:'Noto Sans TC',sans-serif; -webkit-font-smoothing:antialiased; }
+
+nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(220,232,240,.92); backdrop-filter:blur(20px); border-bottom:1px solid rgba(91,143,168,.2); padding:0 1.5rem; height:52px; display:flex; align-items:center; justify-content:space-between; }
+.logo { font-size:.88rem; font-weight:600; color:var(--text); }
+.logo span { color:var(--blue); }
+.nav-links { list-style:none; display:flex; gap:1.5rem; }
+.nav-links a { color:var(--text-soft); text-decoration:none; font-size:.78rem; }
+
+#bar { position:fixed; top:52px; left:0; height:2px; background:var(--blue); z-index:200; width:0; transition:width .1s; }
+
+.toolbar { position:fixed; bottom:0; width:100%; z-index:100; background:rgba(220,232,240,.95); backdrop-filter:blur(20px); border-top:1px solid rgba(91,143,168,.2); padding:.5rem 1rem; display:flex; align-items:center; justify-content:center; gap:.6rem; }
+.tb-label { font-size:.65rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
+.tb-sep { width:1px; height:18px; background:rgba(91,143,168,.25); }
+.tb-btn { width:30px; height:30px; border-radius:50%; border:1.5px solid rgba(91,143,168,.25); background:white; color:var(--text-soft); cursor:pointer; font-size:.82rem; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+.tb-btn:hover { border-color:var(--blue); color:var(--blue); }
+.tb-val { font-size:.75rem; color:var(--text-soft); font-family:'Inter',sans-serif; min-width:24px; text-align:center; }
+.bg-btn { width:26px; height:26px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:all .2s; font-size:.85rem; display:flex; align-items:center; justify-content:center; }
+.bg-btn.active { border-color:var(--blue); }
+
+.outer { padding:62px 1rem 56px; display:flex; justify-content:center; min-height:100vh; }
+.page { background:white; width:100%; max-width:640px; box-shadow:0 4px 32px rgba(45,55,72,.1); border-radius:.5rem; overflow:hidden; font-size:15px; }
+
+.article-meta { padding:1.8rem 1.8rem 1.4rem; border-bottom:1px solid #e8ecf2; background:#eef4f8; }
+.article-series { font-size:.65rem; letter-spacing:.2em; color:var(--blue); font-family:'Inter',sans-serif; text-transform:uppercase; font-weight:500; margin-bottom:.5rem; }
+.article-meta h1 { font-size:1.25rem; font-weight:600; line-height:1.3; color:var(--text); margin-bottom:.8rem; }
+.badges { display:flex; gap:.4rem; flex-wrap:wrap; }
+.badge { font-size:.62rem; padding:.18rem .65rem; border-radius:2rem; }
+.badge-cat { background:white; color:var(--blue); border:1px solid rgba(91,143,168,.25); }
+.badge-info { background:white; color:var(--text-mute); border:1px solid #e8ecf2; }
+
+.article-body { padding:1.8rem 1.8rem 2rem; line-height:1.95; transition:background .3s; --r-bg:#ffffff; --r-text:#2d3748; --r-soft:#5a6a7a; --r-mute:#8896a5; --r-accent:#5b8fa8; --r-border:#e8ecf2; --r-lede-bg:#eef4f8; background:var(--r-bg); color:var(--r-text); }
+.article-body.theme-rice { --r-bg:#f5f0e8; --r-text:#2c1e10; --r-soft:#5a4a38; --r-mute:#9a8a78; --r-accent:#8b6343; --r-border:#e0d8cc; --r-lede-bg:#ede6d8; }
+.article-body.theme-night { --r-bg:#1c2638; --r-text:#e8dfc8; --r-soft:#b0c4d0; --r-mute:#708090; --r-accent:#7aadc4; --r-border:rgba(255,255,255,.1); --r-lede-bg:rgba(122,173,196,.1); }
+.article-body.theme-eye { --r-bg:#eaf2e4; --r-text:#1a2810; --r-soft:#3a5030; --r-mute:#6a9070; --r-accent:#4a7a50; --r-border:#c8dcc0; --r-lede-bg:#ddeedd; }
+
+.lede { font-size:1em; color:var(--r-accent); line-height:1.9; margin-bottom:1.8rem; border-left:3px solid var(--r-accent); padding:.8rem 1rem; background:var(--r-lede-bg); border-radius:0 .3rem .3rem 0; }
+.lede strong { color:var(--r-accent); }
+
+.ch-title { font-size:1.05em; font-weight:600; color:var(--r-text); margin:1.8rem 0 .7rem; display:flex; align-items:center; gap:.5rem; }
+.ch-title::before { content:'▍'; color:var(--r-accent); font-size:.9em; }
+
+.prose p { font-size:1em; line-height:1.95; color:var(--r-soft); margin-bottom:.8rem; }
+.prose p strong { color:var(--r-text); font-weight:600; }
+
+.point-item { padding:.5rem 0 .5rem .9rem; border-left:2px solid var(--r-border); margin-bottom:.6rem; }
+.point-label { font-size:.75em; color:var(--r-accent); font-family:'Inter',sans-serif; font-weight:500; margin-bottom:.2rem; }
+.point-text { font-size:1em; color:var(--r-soft); line-height:1.8; }
+.point-text strong { color:var(--r-text); }
+
+.compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; margin-bottom:1.2rem; }
+.compare-box { border:1px solid var(--r-border); border-radius:.4rem; padding:.8rem 1rem; }
+.compare-box.left { border-left:3px solid var(--r-mute); }
+.compare-box.right { border-left:3px solid var(--r-accent); }
+.compare-title { font-size:.75em; font-weight:600; color:var(--r-text); margin-bottom:.5rem; font-family:'Inter',sans-serif; }
+.compare-item { font-size:.8em; color:var(--r-soft); line-height:1.9; }
+
+.quote { padding:.5rem 0 .5rem .9rem; border-left:2px solid var(--r-accent); margin-bottom:.6rem; font-style:italic; color:var(--r-soft); font-size:1em; line-height:1.8; }
+
+.summary-text { text-align:center; font-size:1em; color:var(--r-text); line-height:2; padding:1.2rem 0; border-top:1px solid var(--r-border); border-bottom:1px solid var(--r-border); margin:1.5rem 0; }
+.summary-text strong { color:var(--r-accent); }
+
+.article-footer { border-top:1px solid #e8ecf2; padding:1.2rem 1.8rem; background:#eef4f8; }
+.next-link { display:flex; justify-content:space-between; align-items:center; text-decoration:none; margin-bottom:.8rem; }
+.next-label { font-size:.6rem; color:var(--text-mute); font-family:'Inter',sans-serif; letter-spacing:.12em; margin-bottom:.2rem; }
+.next-title { font-size:.9rem; color:var(--text); font-weight:600; }
+.next-sub { font-size:.72rem; color:var(--text-soft); margin-top:.15rem; }
+.next-arrow { font-size:1.1rem; color:var(--blue); }
+.tag-row { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.8rem; }
+.tag { font-size:.62rem; color:var(--text-mute); }
+.progress-wrap { display:flex; align-items:center; gap:.8rem; }
+.progress-label { font-size:.62rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
+.progress-bar { flex:1; height:2px; background:#e8ecf2; border-radius:1px; overflow:hidden; }
+.progress-fill { height:100%; background:var(--blue); width:10%; }
+.progress-num { font-size:.62rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
 </style>
 </head>
 <body>
+
 <div id="bar"></div>
+
 <nav>
-  <a href="index.html" class="logo">📚 Noble 的<span>閱讀</span>與思考</a>
+  <div class="logo">📚 Noble 的<span>閱讀</span>與思考</div>
   <ul class="nav-links">
-    <li><a href="index.html">書架</a></li>
+    <li><a href="index.html">首頁</a></li>
     <li><a href="finance.html">財商專區</a></li>
-    <li><a href="about.html">關於 Noble</a></li>
+    <li><a href="index.html#about">關於</a></li>
   </ul>
 </nav>
 
-<div class="reader">
-  <div class="breadcrumb">
-    <a href="index.html" class="bc-link">首頁</a><span>›</span>
-    <a href="finance.html" class="bc-link">財商專區</a><span>›</span>
-    <span>#01</span>
-  </div>
+<div class="outer">
+  <div class="page">
 
-  <div class="article-series">💰 財商覺醒系列 #01</div>
-  <h1 class="article-title">你不是沒錢，你是沒有「財商思維」</h1>
-  <div class="article-badges">
-    <span class="badge badge-cat">財商思維</span>
-    <span class="badge badge-cat">底層觀念</span>
-    <span class="badge badge-info">📖 約 5 分鐘</span>
-  </div>
-  <div class="article-lede">很多月薪 10 萬的人一樣沒有存款，很多月薪 3 萬的人卻能穩定累積資產——<strong>差別不在薪水，在思維。</strong></div>
-
-  <div class="chapter">
-    <div class="chapter-title">財商，不是投資技巧</div>
-    <div class="prose">
-      <p>很多人一聽到「財商」，腦子裡浮現的是：「要買什麼股票？」「哪支 ETF 比較好？」「現在適合進場嗎？」</p>
-      <p>這些都是「技術」，不是財商。</p>
-      <p>財商（Financial Intelligence）的核心，是一套<strong>看待金錢的方式</strong>。它回答的不是「買什麼」，而是：錢對我來說代表什麼？我花錢是為了什麼？我的財務決策背後，是恐懼還是選擇？</p>
-      <p>技術沒有底層思維支撐，就像在沙地上蓋房子——行情好的時候看起來很穩，一遇到震盪，一切瞬間崩塌。</p>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">窮人思維 vs 富人思維</div>
-    <div class="prose"><p>這裡說的「窮」和「富」，不是收入的高低，而是<strong>思維模式的差異</strong>。</p></div>
-    <div class="points" style="margin-top:1rem;">
-      <div class="point">
-        <div class="point-num" style="color:#c04a3a;">窮人思維</div>
-        <div class="point-text">「我買不起。」→ 直接關上可能性<br>「存錢沒用，通膨會吃掉。」→ 用藉口合理化不行動<br>「等我有錢再說。」→ 永遠在等一個不會來的時機</div>
-      </div>
-      <div class="point">
-        <div class="point-num" style="color:var(--accent-dark);">富人思維</div>
-        <div class="point-text">「我怎麼樣才能買得起？」→ 把限制變成問題去解決<br>「這筆錢能幫我產生什麼？」→ 思考錢的流向與效益<br>「現在能做什麼小步驟？」→ 不等完美條件，先啟動</div>
+    <div class="article-meta">
+      <div class="article-series">💰 財商覺醒系列 #01</div>
+      <h1>你不是沒錢，你是沒有「財商思維」</h1>
+      <div class="badges">
+        <span class="badge badge-cat">財商思維</span>
+        <span class="badge badge-cat">底層觀念</span>
+        <span class="badge badge-info">📖 約 6 分鐘</span>
       </div>
     </div>
-    <div class="prose" style="margin-top:1rem;">
-      <p>窮人思維不是窮人專屬，高收入者一樣可能有窮人思維。而擁有富人思維，也不代表你現在就有錢——它只是讓你開始<strong>做出不同的選擇</strong>。</p>
-    </div>
-  </div>
 
-  <div class="chapter">
-    <div class="chapter-title">為什麼努力工作，卻越來越焦慮？</div>
-    <div class="prose"><p>工作越來越忙，薪水有在漲，但對「錢」的焦慮感，卻沒有跟著減少。原因通常有三個：</p></div>
-    <div class="points" style="margin-top:1rem;">
-      <div class="point">
-        <div class="point-num">原因 01｜生活水準膨脹</div>
-        <div class="point-text">加薪之後，換了更貴的手機、搬到更好的房子。帳戶數字沒有真正增加，只是消費的層次提升了。</div>
+    <div class="article-body" id="body">
+
+      <div class="lede">
+        很多月薪 10 萬的人，一樣沒有存款。很多月薪 3 萬的人，卻能穩定累積資產。<br>
+        <strong>差別不在薪水，在思維。</strong>
       </div>
-      <div class="point">
-        <div class="point-num">原因 02｜沒有財務目標，只有財務焦慮</div>
-        <div class="point-text">不知道自己要存到多少才夠，不知道自己的錢要去哪裡。這種模糊感本身就是焦慮的來源。</div>
+
+      <div class="ch-title">財商，不是投資技巧</div>
+      <div class="prose">
+        <p>很多人一聽到「財商」，腦子裡浮現的是：要買什麼股票？哪支 ETF 比較好？現在適合進場嗎？這些都是「技術」，不是財商。</p>
+        <p>財商（Financial Intelligence）的核心，是一套<strong>看待金錢的方式</strong>。它回答的不是「買什麼」，而是：錢對我來說代表什麼？我花錢是為了什麼？我的財務決策背後，是恐懼還是選擇？</p>
+        <p>技術沒有底層思維支撐，就像在沙地上蓋房子——行情好的時候看起來很穩，一遇到震盪，一切瞬間崩塌。</p>
       </div>
-      <div class="point">
-        <div class="point-num">原因 03｜用別人的標準定義成功</div>
-        <div class="point-text">追一個不是你自己設定的目標，當然永遠不會有安全感。</div>
+
+      <div class="ch-title">窮人思維 vs 富人思維</div>
+      <div class="prose"><p>這裡說的「窮」和「富」，不是收入的高低，而是<strong>思維模式的差異</strong>。</p></div>
+
+      <div class="compare-grid">
+        <div class="compare-box left">
+          <div class="compare-title">窮人思維</div>
+          <div class="compare-item">→ 「我買不起。」<br>直接關上可能性</div>
+          <div class="compare-item">→ 「存錢沒用，通膨會吃掉。」<br>用藉口合理化不行動</div>
+          <div class="compare-item">→ 「等我有錢再說。」<br>永遠在等一個不會來的時機</div>
+        </div>
+        <div class="compare-box right">
+          <div class="compare-title">富人思維</div>
+          <div class="compare-item">→ 「我怎麼樣才能買得起？」<br>把限制變成問題去解決</div>
+          <div class="compare-item">→ 「這筆錢能幫我產生什麼？」<br>思考錢的流向與效益</div>
+          <div class="compare-item">→ 「現在能做什麼小步驟？」<br>不等完美條件，先啟動</div>
+        </div>
+      </div>
+
+      <div class="prose"><p>窮人思維不是窮人專屬，高收入者一樣可能有窮人思維。而擁有富人思維，也不代表你現在就有錢——它只是讓你開始<strong>做出不同的選擇</strong>。</p></div>
+
+      <div class="ch-title">為什麼努力工作，卻越來越焦慮？</div>
+
+      <div class="point-item">
+        <div class="point-label">原因一｜生活水準膨脹</div>
+        <div class="point-text">加薪之後，換了更貴的手機、搬到更好的房子、開始買精品。帳戶數字沒有真正增加，只是消費的層次提升了。</div>
+      </div>
+      <div class="point-item">
+        <div class="point-label">原因二｜沒有財務目標，只有財務焦慮</div>
+        <div class="point-text">不知道自己要存到多少才夠，不知道自己的錢要去哪裡，只知道「好像應該多存一點」，這種模糊感本身就是焦慮的來源。</div>
+      </div>
+      <div class="point-item">
+        <div class="point-label">原因三｜用別人的標準定義自己的成功</div>
+        <div class="point-text">追一個不是你自己設定的目標，追一個沒有終點的比賽，當然永遠不會有安全感。</div>
+      </div>
+
+      <div class="ch-title">財商思維的第一步</div>
+      <div class="prose"><p>不是「我要怎麼投資？」而是：</p></div>
+      <div class="summary-text">「我的錢，到底是在<strong>服務我的生活</strong>，<br>還是<strong>控制我的生活</strong>？」</div>
+      <div class="prose">
+        <p>如果你的錢是你的工具，你就是主人。如果你的生活是圍繞著錢在轉，你就是奴隸。財商的起點，不是學一個投資方法，而是重新確立你和金錢之間的關係。</p>
+      </div>
+
+      <div class="ch-title">本篇重點回顧</div>
+      <div class="quote">財商不是技術，是底層思維</div>
+      <div class="quote">窮富之別在於面對限制時的思考方式</div>
+      <div class="quote">收入增加不等於焦慮減少，關鍵在於有沒有目標與自主性</div>
+      <div class="quote">財商的第一步：讓錢服務你的生活，而不是反過來</div>
+
+    </div>
+
+    <div class="article-footer">
+      <a href="finance2.html" class="next-link">
+        <div>
+          <div class="next-label">下一篇</div>
+          <div class="next-title">先定義「夠了」，再談財富自由</div>
+          <div class="next-sub">財商覺醒系列 #02</div>
+        </div>
+        <div class="next-arrow">→</div>
+      </a>
+      <div class="tag-row">
+        <span class="tag"># 財商覺醒</span>
+        <span class="tag"># 財務自由</span>
+        <span class="tag"># 窮人思維</span>
+        <span class="tag"># Noble的閱讀與思考</span>
+      </div>
+      <div class="progress-wrap">
+        <span class="progress-label">閱讀進度</span>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <span class="progress-num">01 / 10</span>
       </div>
     </div>
-  </div>
 
-  <div class="chapter">
-    <div class="chapter-title">財商思維的第一步</div>
-    <div class="prose"><p>不是「我要怎麼投資？」而是：</p></div>
-    <div class="summary">
-      <p>「我的錢，到底是在<strong>服務我的生活</strong>，<br>還是<strong>控制我的生活</strong>？」</p>
-    </div>
-    <div class="prose">
-      <p>如果你的錢是你的工具，你就是主人。如果你的生活是圍繞著錢在轉，你就是奴隸。財商的起點，不是學一個投資方法，而是重新確立你和金錢之間的關係。</p>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">本篇重點回顧</div>
-    <div class="quotes">
-      <div class="quote-item"><p>財商不是技術，是底層思維</p></div>
-      <div class="quote-item"><p>窮富之別在於面對限制時的思考方式</p></div>
-      <div class="quote-item"><p>收入增加不等於焦慮減少，關鍵在於有沒有目標與自主性</p></div>
-      <div class="quote-item"><p>財商的第一步：讓錢服務你的生活，而不是反過來</p></div>
-    </div>
-  </div>
-
-  <a href="finance2.html" class="next-article">
-    <div>
-      <div class="next-label">下一篇</div>
-      <div class="next-title">先定義「夠了」，再談財富自由</div>
-      <div class="next-sub">財商覺醒系列 #02</div>
-    </div>
-    <div class="next-arrow">→</div>
-  </a>
-
-  <div class="tag-row">
-    <span class="tag-item"># 財商覺醒</span>
-    <span class="tag-item"># 財務自由</span>
-    <span class="tag-item"># 窮人思維</span>
-    <span class="tag-item"># 富人思維</span>
-    <span class="tag-item"># Noble的閱讀與思考</span>
-  </div>
-
-  <div class="ebook-footer">
-    <div>Noble 的閱讀與思考</div>
-    <div style="text-align:right;">
-      <div>01 of 10</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
-    </div>
   </div>
 </div>
 
-<footer><p>© 2025 <span>Noble 的閱讀與思考</span> · 知識書店</p></footer>
+<div class="toolbar">
+  <span class="tb-label">字體</span>
+  <button class="tb-btn" onclick="chg(-1)">A−</button>
+  <span class="tb-val" id="fsv">15</span>
+  <button class="tb-btn" onclick="chg(1)">A+</button>
+  <div class="tb-sep"></div>
+  <span class="tb-label">背景</span>
+  <button class="bg-btn active" id="bg-white" onclick="setTheme('')" style="background:#fff;border:2px solid #ccc;">白</button>
+  <button class="bg-btn" id="bg-rice" onclick="setTheme('theme-rice')" style="background:#f5f0e8;">米</button>
+  <button class="bg-btn" id="bg-night" onclick="setTheme('theme-night')" style="background:#1c2638;">🌙</button>
+  <button class="bg-btn" id="bg-eye" onclick="setTheme('theme-eye')" style="background:#eaf2e4;">🌿</button>
+</div>
 
 <script>
+let fs = 15;
+const body = document.getElementById('body');
+const themes = ['','theme-rice','theme-night','theme-eye'];
+const bgBtns = ['bg-white','bg-rice','bg-night','bg-eye'];
+function chg(d) {
+  fs = Math.min(20, Math.max(12, fs + d));
+  body.style.fontSize = fs + 'px';
+  document.getElementById('fsv').textContent = fs;
+}
+function setTheme(cls) {
+  body.className = 'article-body' + (cls ? ' ' + cls : '');
+  bgBtns.forEach((id,i) => document.getElementById(id).classList.toggle('active', themes[i] === cls));
+}
 window.addEventListener('scroll', () => {
   const t = document.documentElement.scrollHeight - window.innerHeight;
   document.getElementById('bar').style.width = (t > 0 ? window.scrollY/t*100 : 0) + '%';
