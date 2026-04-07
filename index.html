@@ -4,90 +4,258 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noble 的閱讀與思考｜知識書店</title>
-<meta name="description" content="Noble 的數位知識書店。深度閱讀筆記 × 財商覺醒系列，用 AI 輔助整理，讓知識真正內化。">
-<link rel="stylesheet" href="style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --slate:#2d4a5a;
+  --slate-deep:#1e3040;
+  --slate-mid:#3d6070;
+  --sand:#c8a86a;
+  --sand-light:#dcc090;
+  --bg:#f4f1eb;
+  --bg2:#ede8de;
+  --surface:#ffffff;
+  --ink:#1e2830;
+  --ink-soft:#3a4a54;
+  --ink-mute:#8a9aa4;
+  --border:#d8d0c4;
+  --green-tag:#2e5848;
+  --green-bg:#e8f0ec;
+  --amber-tag:#5a4820;
+  --amber-bg:#f0ece0;
+  --radius:8px;
+}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans TC',sans-serif;font-size:14px;line-height:1.9;}
+
+.top-stripe{height:4px;background:linear-gradient(to right,var(--slate-deep),var(--slate-mid),var(--sand),var(--slate-mid),var(--slate-deep));}
+
+header{background:var(--slate-deep);padding:1.8rem 2.5rem;display:flex;align-items:center;gap:1.6rem;position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 10% 60%,rgba(200,168,106,.07),transparent 55%),radial-gradient(ellipse at 90% 40%,rgba(61,96,112,.2),transparent 55%);}
+.logo-img-wrap{width:64px;height:64px;min-width:64px;border-radius:50%;border:2px solid rgba(200,168,106,.35);overflow:hidden;background:rgba(255,255,255,.05);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;font-size:1.8rem;}
+.logo-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.logo-text{position:relative;z-index:1;}
+.logo-en{font-size:.56rem;letter-spacing:.32em;color:var(--sand);font-family:'Inter',sans-serif;margin-bottom:.25rem;opacity:.55;}
+.logo-main{font-size:1.35rem;font-weight:700;font-family:'Noto Serif TC',serif;color:#eef2f4;letter-spacing:.04em;line-height:1.2;}
+.logo-main .acc{color:var(--sand-light);}
+.logo-tagline{font-size:.58rem;color:rgba(220,192,144,.4);letter-spacing:.12em;margin-top:.25rem;font-family:'Noto Sans TC',sans-serif;}
+
+nav{background:var(--slate);padding:.5rem 2.5rem;display:flex;gap:0;align-items:center;border-bottom:1px solid rgba(200,168,106,.2);}
+.nav-a{color:rgba(220,210,195,.6);text-decoration:none;font-size:.7rem;letter-spacing:.12em;padding:.3rem 1.1rem;font-family:'Noto Sans TC',sans-serif;transition:all .2s;border-right:1px solid rgba(255,255,255,.07);}
+.nav-a:first-child{padding-left:0;}
+.nav-a:hover,.nav-a.on{color:var(--sand-light);}
+.nav-spacer{flex:1;}
+.nav-note{font-size:.56rem;color:rgba(200,168,106,.3);letter-spacing:.1em;font-family:'Noto Sans TC',sans-serif;}
+
+.hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:3rem 2.5rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(45,74,90,.05) 28px,rgba(45,74,90,.05) 29px);pointer-events:none;}
+.hero-eyebrow{font-size:.62rem;letter-spacing:.35em;color:var(--slate-mid);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:1rem;position:relative;z-index:1;}
+.hero-title{font-size:clamp(1.4rem,3.5vw,2.2rem);font-weight:400;font-family:'Noto Serif TC',serif;line-height:1.75;color:var(--ink);margin-bottom:.6rem;position:relative;z-index:1;}
+.hero-title strong{font-weight:700;color:var(--slate);}
+.hero-divider{width:56px;height:2px;background:linear-gradient(to right,var(--slate),var(--sand));margin:.75rem auto;}
+.hero-sub{font-size:.75rem;color:var(--ink-mute);letter-spacing:.08em;position:relative;z-index:1;font-family:'Noto Sans TC',sans-serif;margin-bottom:1.8rem;}
+.hero-stats{display:inline-flex;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(30,48,64,.08);}
+.h-stat{padding:.9rem 1.8rem;text-align:center;border-right:1px solid var(--border);}
+.h-stat:last-child{border-right:none;}
+.h-num{font-size:1.4rem;font-weight:600;color:var(--slate);font-family:'Inter',sans-serif;display:block;line-height:1;}
+.h-label{font-size:.6rem;color:var(--ink-mute);letter-spacing:.08em;margin-top:.2rem;display:block;font-family:'Noto Sans TC',sans-serif;}
+
+.main{max-width:960px;margin:0 auto;padding:2.5rem 2rem 4rem;}
+.sec-head{display:flex;align-items:center;gap:.8rem;margin-bottom:1.4rem;}
+.sec-head h2{font-size:.88rem;font-weight:600;font-family:'Noto Serif TC',serif;letter-spacing:.06em;white-space:nowrap;color:var(--ink);}
+.sec-head::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent);}
+.sec-badge{font-size:.57rem;font-family:'Inter',sans-serif;color:var(--ink-mute);border:1px solid var(--border);padding:.1rem .5rem;border-radius:.15rem;white-space:nowrap;}
+.sec-link{font-size:.65rem;color:var(--sand);font-family:'Inter',sans-serif;text-decoration:none;white-space:nowrap;opacity:.8;}
+.sec-link:hover{opacity:1;}
+
+.shelf-outer{background:linear-gradient(160deg,var(--slate-mid),var(--slate-deep));border-radius:.4rem;padding:1.1rem 1.3rem .5rem;box-shadow:0 10px 32px rgba(30,48,64,.22);position:relative;}
+.shelf-outer::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(to bottom,rgba(200,168,106,.2),transparent);border-radius:.4rem .4rem 0 0;}
+.shelf-row{display:flex;gap:.5rem;align-items:flex-end;padding-bottom:.9rem;border-bottom:10px solid var(--slate-deep);}
+.bk{display:flex;flex-direction:column;justify-content:center;align-items:center;border-radius:.18rem .18rem 0 0;cursor:pointer;transition:transform .25s,filter .25s;text-decoration:none;}
+.bk:hover{transform:translateY(-10px);filter:brightness(1.18);}
+.bk span{writing-mode:vertical-rl;font-size:.48rem;color:rgba(255,255,255,.85);padding:.25rem .16rem;font-family:'Noto Sans TC',sans-serif;line-height:1.3;}
+.bk1{width:34px;height:100px;background:linear-gradient(170deg,#4a7060,#2e5040);}
+.bk2{width:28px;height:88px;background:linear-gradient(170deg,#5a4a38,#3a3028);}
+.bk3{width:36px;height:108px;background:linear-gradient(170deg,#3a5870,#223a50);}
+.bk4{width:32px;height:94px;background:linear-gradient(170deg,#6a5840,#4a4030);}
+.bk5{width:38px;height:104px;background:linear-gradient(170deg,#2e5060,#1e3848);}
+.bk6{width:27px;height:82px;background:linear-gradient(170deg,#503828,#382818);}
+.bk7{width:34px;height:97px;background:linear-gradient(170deg,#3a6858,#284838);}
+.bk8{width:32px;height:90px;background:linear-gradient(170deg,#584838,#402e28);}
+.bk9{width:40px;height:106px;background:linear-gradient(170deg,#2a4a68,#1a3050);}
+.bk10{width:30px;height:85px;background:linear-gradient(170deg,#485840,#303e28);}
+.shelf-foot{text-align:right;padding:.45rem 0 0;}
+.shelf-foot a{font-size:.62rem;color:var(--sand);font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:.05em;opacity:.6;}
+.shelf-foot a:hover{opacity:1;}
+
+.art-item{display:flex;align-items:baseline;gap:1rem;padding:.7rem 1rem;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;border-radius:.3rem;transition:background .15s;position:relative;}
+.art-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--sand);border-radius:1px;opacity:0;transition:opacity .2s;}
+.art-item:hover{background:var(--surface);}
+.art-item:hover::before{opacity:1;}
+.art-no{font-size:.65rem;font-family:'Inter',sans-serif;color:var(--border);min-width:1.8rem;line-height:1;font-weight:600;}
+.art-main{flex:1;}
+.art-title{font-size:.9rem;font-weight:600;font-family:'Noto Serif TC',serif;color:var(--ink);line-height:1.4;margin-bottom:.2rem;transition:color .2s;}
+.art-item:hover .art-title{color:var(--slate);}
+.art-meta{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
+.art-tag{font-size:.56rem;padding:.08rem .45rem;border-radius:2rem;font-family:'Inter',sans-serif;letter-spacing:.06em;}
+.tag-read{background:var(--green-bg);color:var(--green-tag);}
+.tag-finance{background:var(--amber-bg);color:var(--amber-tag);}
+.art-desc{font-size:.72rem;color:var(--ink-mute);line-height:1.6;}
+.art-right{display:flex;flex-direction:column;align-items:flex-end;gap:.3rem;min-width:60px;}
+.art-author{font-size:.6rem;color:var(--ink-mute);font-family:'Inter',sans-serif;white-space:nowrap;}
+.art-arrow{font-size:.7rem;color:var(--sand);opacity:0;transition:opacity .2s;}
+.art-item:hover .art-arrow{opacity:1;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+
+.about{margin-top:2.5rem;background:var(--slate-deep);border-radius:var(--radius);padding:2rem 2.5rem;display:flex;gap:1.8rem;align-items:flex-start;position:relative;overflow:hidden;border-top:3px solid var(--sand);}
+.about::before{content:'閱';position:absolute;right:1.5rem;bottom:-1.5rem;font-size:9rem;font-weight:700;color:rgba(200,168,106,.05);font-family:'Noto Serif TC',serif;pointer-events:none;}
+.about-icon{width:52px;height:52px;min-width:52px;border:1.5px solid rgba(200,168,106,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;border-radius:4px;}
+.about-body h3{font-size:.88rem;font-weight:600;color:var(--sand-light);letter-spacing:.1em;margin-bottom:.45rem;}
+.about-body p{font-size:.78rem;color:rgba(220,205,180,.5);line-height:2;font-family:'Noto Sans TC',sans-serif;font-weight:300;}
+.about-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem;}
+.a-tag{font-size:.6rem;padding:.15rem .55rem;border:1px solid rgba(200,168,106,.15);color:rgba(200,168,106,.45);border-radius:.15rem;}
+
+footer{background:var(--slate-deep);border-top:1px solid rgba(200,168,106,.1);padding:1rem 2.5rem;display:flex;justify-content:space-between;}
+footer p{font-size:.6rem;color:rgba(200,168,106,.3);font-family:'Inter',sans-serif;letter-spacing:.08em;}
+</style>
 </head>
 <body>
-<!-- 導覽列、設定面板、頁尾由 template.js 自動插入 -->
+
+<div class="top-stripe"></div>
+
+<header>
+  <div class="logo-img-wrap">📖</div>
+  <div class="logo-text">
+    <div class="logo-en">NOBLE'S KNOWLEDGE BOOKSTORE</div>
+    <div class="logo-main">Noble 的<span class="acc">閱讀</span>與思考</div>
+    <div class="logo-tagline">深度閱讀筆記 · 跨域思考文章 · 用閱讀對抗遺忘</div>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html" class="nav-a on">首頁</a>
+  <a href="#read" class="nav-a">📖 閱讀</a>
+  <a href="#think" class="nav-a">💰 財商</a>
+  <a href="#about" class="nav-a">關於</a>
+  <div class="nav-spacer"></div>
+  <span class="nav-note">10 本書 · 2 篇文章已上線</span>
+</nav>
 
 <div class="hero">
-  <div class="hero-badge">✦ Noble 的知識書店 ✦</div>
-  <h1>把每一本書的智慧<br><strong>變成可以傳遞的力量</strong></h1>
-  <p>深度閱讀筆記 × 財商覺醒系列<br>用 AI 輔助整理，讓知識真正內化。</p>
+  <div class="hero-eyebrow">Noble 的知識書店</div>
+  <div class="hero-title">把每一本書的智慧，<strong>變成可以傳遞的力量</strong></div>
   <div class="hero-divider"></div>
+  <div class="hero-sub">用 AI 輔助整理，讓知識真正內化 · 用閱讀對抗遺忘</div>
   <div class="hero-stats">
-    <div class="stat"><div class="stat-num">500+</div><div class="stat-label">實體藏書</div></div>
-    <div class="stat"><div class="stat-num">400+</div><div class="stat-label">分享文章</div></div>
-    <div class="stat"><div class="stat-num">50</div><div class="stat-label">深度書評目標</div></div>
+    <div class="h-stat"><span class="h-num">500+</span><span class="h-label">實體藏書</span></div>
+    <div class="h-stat"><span class="h-num">400+</span><span class="h-label">累積分享</span></div>
+    <div class="h-stat"><span class="h-num">50</span><span class="h-label">書評目標</span></div>
   </div>
 </div>
 
-<div class="container">
+<div class="main">
 
-  <!-- 書架 -->
-  <div class="section-tag">AI 帶我讀 · 深度閱讀筆記</div>
-  <div class="section-title">Noble 的<span>書店書架</span></div>
-  <div class="shelf">
-    <div class="books-grid">
-      <a href="book1.html" class="book-card"><div class="book-spine c1"><span class="book-badge">01</span><div class="book-num">人生哲學</div><div class="book-title-s">活出意義來</div><div class="book-author-s">Viktor Frankl</div></div></a>
-      <a href="book2.html" class="book-card"><div class="book-spine c2"><span class="book-badge">02</span><div class="book-num">斯多葛</div><div class="book-title-s">沉思錄</div><div class="book-author-s">Marcus Aurelius</div></div></a>
-      <a href="book3.html" class="book-card"><div class="book-spine c3"><span class="book-badge">03</span><div class="book-num">心理學</div><div class="book-title-s">被討厭的勇氣</div><div class="book-author-s">岸見一郎</div></div></a>
-      <a href="book4.html" class="book-card"><div class="book-spine c4"><span class="book-badge">04</span><div class="book-num">心理學</div><div class="book-title-s">心態致勝</div><div class="book-author-s">Carol S. Dweck</div></div></a>
-      <a href="book5.html" class="book-card"><div class="book-spine c5"><span class="book-badge">05</span><div class="book-num">心理學</div><div class="book-title-s">恆毅力</div><div class="book-author-s">Angela Duckworth</div></div></a>
-      <a href="book6.html" class="book-card"><div class="book-spine c6"><span class="book-badge">06</span><div class="book-num">心理療癒</div><div class="book-title-s">蛤蟆先生去看心理師</div><div class="book-author-s">Robert de Board</div></div></a>
-      <a href="book7.html" class="book-card"><div class="book-spine c7"><span class="book-badge">07</span><div class="book-num">心理療癒</div><div class="book-title-s">也許你該找人談談</div><div class="book-author-s">Lori Gottlieb</div></div></a>
-      <a href="book8.html" class="book-card"><div class="book-spine c8"><span class="book-badge">08</span><div class="book-num">人格特質</div><div class="book-title-s">高敏感是種天賦</div><div class="book-author-s">Elaine N. Aron</div></div></a>
-      <a href="book9.html" class="book-card"><div class="book-spine c9"><span class="book-badge">09</span><div class="book-num">行為經濟學</div><div class="book-title-s">快思慢想</div><div class="book-author-s">Daniel Kahneman</div></div></a>
-      <a href="book10.html" class="book-card"><div class="book-spine c10"><span class="book-badge">10</span><div class="book-num">人生哲學</div><div class="book-title-s">我可能錯了</div><div class="book-author-s">Björn Lindeblad</div></div></a>
+  <div class="sec-head" id="read">
+    <h2>📖 Noble 的書架</h2>
+    <span class="sec-badge">AI 帶我讀 · 10 本</span>
+    <a href="booklist.html" class="sec-link">查看全部 →</a>
+  </div>
+  <div class="shelf-outer">
+    <div class="shelf-row">
+      <a href="book1.html" class="bk bk1"><span>活出意義來</span></a>
+      <a href="book2.html" class="bk bk2"><span>沉思錄</span></a>
+      <a href="book3.html" class="bk bk3"><span>被討厭的勇氣</span></a>
+      <a href="book4.html" class="bk bk4"><span>心態致勝</span></a>
+      <a href="book5.html" class="bk bk5"><span>恆毅力</span></a>
+      <a href="book6.html" class="bk bk6"><span>蛤蟆先生</span></a>
+      <a href="book7.html" class="bk bk7"><span>也許你該找人談談</span></a>
+      <a href="book8.html" class="bk bk8"><span>高敏感是種天賦</span></a>
+      <a href="book9.html" class="bk bk9"><span>快思慢想</span></a>
+      <a href="book10.html" class="bk bk10"><span>我可能錯了</span></a>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <div class="two-col">
+    <div id="think">
+      <div class="sec-head" style="margin-top:0;">
+        <h2>💰 財商覺醒</h2>
+        <span class="sec-badge">2 / 10 篇</span>
+        <a href="finance.html" class="sec-link">全部 →</a>
+      </div>
+      <a href="finance1.html" class="art-item">
+        <div class="art-no">01</div>
+        <div class="art-main">
+          <div class="art-title">你不是沒錢，你是沒有「財商思維」</div>
+          <div class="art-meta"><span class="art-tag tag-finance">底層思維</span><span class="art-desc">差別不在薪水，在思維模式</span></div>
+        </div>
+        <div class="art-right"><span class="art-author">Noble</span><span class="art-arrow">→</span></div>
+      </a>
+      <a href="finance2.html" class="art-item">
+        <div class="art-no">02</div>
+        <div class="art-main">
+          <div class="art-title">先定義「夠了」，再談財富自由</div>
+          <div class="art-meta"><span class="art-tag tag-finance">目標設定</span><span class="art-desc">找到你的夠了點，才有真正的終點</span></div>
+        </div>
+        <div class="art-right"><span class="art-author">Noble</span><span class="art-arrow">→</span></div>
+      </a>
+    </div>
 
-  <!-- 財商預覽 -->
-  <div style="margin-top:2.5rem;">
-    <div class="section-tag">財商覺醒系列 · 10 篇</div>
-    <div class="section-title">Noble 的<span>財商專區</span></div>
-    <div class="articles-grid">
-      <a href="finance1.html" class="article-card">
-        <div class="article-cat">💰 財商覺醒 #01</div>
-        <div class="article-title">你不是沒錢，你是沒有「財商思維」</div>
-        <div class="article-desc">差別不在薪水，在思維模式……</div>
-        <div class="article-footer"><span class="article-tag"># 財商思維</span><span class="read-more">閱讀 →</span></div>
+    <div>
+      <div class="sec-head" style="margin-top:0;">
+        <h2>📖 最新閱讀</h2>
+        <span class="sec-badge">最近 3 本</span>
+        <a href="booklist.html" class="sec-link">全部 →</a>
+      </div>
+      <a href="book10.html" class="art-item">
+        <div class="art-no">10</div>
+        <div class="art-main">
+          <div class="art-title">我可能錯了</div>
+          <div class="art-meta"><span class="art-tag tag-read">人生哲學</span><span class="art-desc">Björn Lindeblad</span></div>
+        </div>
+        <div class="art-right"><span class="art-author">B. Lindeblad</span><span class="art-arrow">→</span></div>
       </a>
-      <a href="finance2.html" class="article-card">
-        <div class="article-cat">💰 財商覺醒 #02</div>
-        <div class="article-title">先定義「夠了」，再談財富自由</div>
-        <div class="article-desc">找到你的「夠了點」，才有真正的終點……</div>
-        <div class="article-footer"><span class="article-tag"># 夠了點</span><span class="read-more">閱讀 →</span></div>
+      <a href="book9.html" class="art-item">
+        <div class="art-no">09</div>
+        <div class="art-main">
+          <div class="art-title">快思慢想</div>
+          <div class="art-meta"><span class="art-tag tag-read">行為經濟學</span><span class="art-desc">Daniel Kahneman</span></div>
+        </div>
+        <div class="art-right"><span class="art-author">D. Kahneman</span><span class="art-arrow">→</span></div>
       </a>
-      <a href="finance.html" class="article-card">
-        <div class="article-cat">💰 財商覺醒系列</div>
-        <div class="article-title">查看全部 10 篇 →</div>
-        <div class="article-desc">從財商思維、四桶金、槓桿、到財富本質……</div>
-        <div class="article-footer"><span class="article-tag"># 完整系列</span><span class="read-more">前往專區 →</span></div>
+      <a href="book8.html" class="art-item">
+        <div class="art-no">08</div>
+        <div class="art-main">
+          <div class="art-title">高敏感是種天賦</div>
+          <div class="art-meta"><span class="art-tag tag-read">人格特質</span><span class="art-desc">Elaine N. Aron</span></div>
+        </div>
+        <div class="art-right"><span class="art-author">E. N. Aron</span><span class="art-arrow">→</span></div>
       </a>
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="about-wrap">
-    <div class="about-avatar">📖</div>
-    <h2>關於 Noble</h2>
-    <p>擁有五百多本實體書、四百篇文章的積累，<br>我相信知識只有被整理、被分享，才真正有價值。<br><br>這裡是我的數位書店，也是我送給需要知識的人的禮物。</p>
-    <div class="about-tags">
-      <span class="tag-pill">📚 深度閱讀</span>
-      <span class="tag-pill">💰 財商投資</span>
-      <span class="tag-pill">🤖 AI 生產力</span>
-      <span class="tag-pill">🧠 思維框架</span>
-      <span class="tag-pill">🌱 個人成長</span>
+  <div class="about" id="about">
+    <div class="about-icon">📖</div>
+    <div class="about-body">
+      <h3>關於 Noble</h3>
+      <p>擁有五百多本實體書、四百篇文章的積累，<br>我相信知識只有被整理、被分享，才真正有價值。<br>這裡是我的數位書店，也是我送給需要知識的人的禮物。</p>
+      <div class="about-tags">
+        <span class="a-tag">📚 深度閱讀</span>
+        <span class="a-tag">💰 財商投資</span>
+        <span class="a-tag">🤖 AI 生產力</span>
+        <span class="a-tag">🧠 思維框架</span>
+        <span class="a-tag">🌱 個人成長</span>
+      </div>
     </div>
   </div>
 
 </div>
 
-<script src="template.js"></script>
-<script src="reader.js"></script>
+<footer>
+  <p>© 2025 Noble 的閱讀與思考 · 知識書店</p>
+  <p>用閱讀對抗遺忘 · 用思考創造價值</p>
+</footer>
+
 </body>
 </html>
