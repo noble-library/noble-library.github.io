@@ -3,180 +3,222 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>先定義「夠了」，再談財富自由｜Noble 的閱讀與思考</title>
+<title>先定義「夠了」，再談財富自由｜財商覺醒 #02</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
-:root{--bg:#f5f0e8;--bg2:#ede6d6;--bg3:#faf7f2;--text:#1a1208;--text-soft:#6b5a3e;--text-mute:#9a8570;--accent:#c4956a;--accent-dark:#8b6343;--accent-bg:rgba(196,149,106,.08);--border:rgba(26,18,8,.1);--shadow:0 2px 16px rgba(26,18,8,.08);}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:var(--bg);color:var(--text);font-family:'Noto Serif TC',serif;font-size:16px;line-height:1.8;}
-nav{position:fixed;top:0;width:100%;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);}
-.logo{font-size:1rem;font-weight:600;color:var(--accent-dark);text-decoration:none;}
-.logo span{color:var(--accent);}
-.nav-links{list-style:none;display:flex;gap:1.8rem;}
-.nav-links a{color:var(--text-soft);text-decoration:none;font-size:.82rem;font-family:'Noto Sans TC',sans-serif;transition:color .3s;}
-.nav-links a:hover{color:var(--accent);}
-#bar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:200;width:0;transition:width .1s;}
-.reader{max-width:680px;margin:0 auto;padding:6rem 2rem 5rem;}
-.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--text-mute);font-family:'Noto Sans TC',sans-serif;margin-bottom:2.5rem;}
-.bc-link{color:var(--text-soft);text-decoration:none;}
-.bc-link:hover{color:var(--accent);}
-.article-series{font-size:.65rem;letter-spacing:.22em;color:var(--text-mute);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:.6rem;}
-.article-title{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:600;color:var(--text);line-height:1.35;margin-bottom:1.2rem;}
-.article-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
-.badge{font-size:.65rem;padding:.25rem .8rem;border-radius:2rem;font-family:'Noto Sans TC',sans-serif;}
-.badge-cat{border:1px solid var(--accent);color:var(--accent-dark);}
-.badge-info{border:1px solid var(--border);color:var(--text-mute);}
-.article-lede{font-size:1rem;line-height:1.9;border-left:3px solid var(--accent);padding:.9rem 1.3rem;background:var(--accent-bg);border-radius:0 .3rem .3rem 0;margin-bottom:2.5rem;}
-.chapter{margin-bottom:2.5rem;}
-.chapter-title{font-size:.72rem;letter-spacing:.2em;color:var(--text-mute);font-family:'Inter',sans-serif;text-transform:uppercase;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);}
-.prose p{margin-bottom:1.2rem;color:var(--text);line-height:2.1;}
-.points{display:flex;flex-direction:column;gap:.8rem;}
-.point{padding:.9rem 1.2rem;background:rgba(26,18,8,.04);border-left:2px solid var(--accent);border-radius:0 .3rem .3rem 0;}
-.point-num{font-size:.62rem;color:var(--text-mute);font-family:'Inter',sans-serif;letter-spacing:.15em;margin-bottom:.3rem;}
-.point-text{color:var(--text);line-height:1.9;}
-.point-text strong{color:var(--accent-dark);}
-.quotes{display:flex;flex-direction:column;gap:.8rem;}
-.quote-item{padding:.8rem 1.2rem;border-left:2px solid var(--accent);background:var(--accent-bg);border-radius:0 .3rem .3rem 0;}
-.quote-item p{font-style:italic;color:var(--text-soft);margin:0;}
-.summary{padding:1.8rem;text-align:center;background:var(--bg2);border:1px solid var(--border);border-radius:.6rem;margin:1.5rem 0;}
-.summary p{font-size:1em;color:var(--text);line-height:2;}
-.next-article{display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding:1.2rem 1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:.6rem;text-decoration:none;transition:border-color .25s;}
-.next-article:hover{border-color:var(--accent);}
-.next-label{font-size:.65rem;color:var(--text-mute);font-family:'Inter',sans-serif;letter-spacing:.15em;margin-bottom:.3rem;}
-.next-title{font-size:.92rem;color:var(--text);font-weight:600;}
-.next-sub{font-size:.78rem;color:var(--text-soft);margin-top:.2rem;}
-.next-arrow{font-size:1.2rem;color:var(--accent);}
-.tag-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem;}
-.tag-item{border:1px solid var(--border);color:var(--text-mute);font-size:.68rem;padding:.25rem .8rem;border-radius:2rem;font-family:'Noto Sans TC',sans-serif;}
-.ebook-footer{margin-top:4rem;padding-top:1.2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'Noto Sans TC',sans-serif;font-size:.72rem;color:var(--text-mute);}
-.progress-bar{width:90px;height:2px;background:var(--border);border-radius:1px;margin-top:.3rem;overflow:hidden;}
-.progress-fill{height:100%;background:var(--accent);}
-footer{border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--text-mute);font-size:.78rem;font-family:'Noto Sans TC',sans-serif;}
-footer span{color:var(--accent-dark);}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap');
+:root {
+  --outer: #dce8f0;
+  --blue: #5b8fa8;
+  --text: #2d3748;
+  --text-soft: #5a6a7a;
+  --text-mute: #8896a5;
+  --border: #e8ecf2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--outer); font-family:'Noto Sans TC',sans-serif; -webkit-font-smoothing:antialiased; }
+
+nav { position:fixed; top:0; width:100%; z-index:100; background:rgba(220,232,240,.92); backdrop-filter:blur(20px); border-bottom:1px solid rgba(91,143,168,.2); padding:0 1.5rem; height:52px; display:flex; align-items:center; justify-content:space-between; }
+.logo { font-size:.88rem; font-weight:600; color:var(--text); }
+.logo span { color:var(--blue); }
+.nav-links { list-style:none; display:flex; gap:1.5rem; }
+.nav-links a { color:var(--text-soft); text-decoration:none; font-size:.78rem; }
+
+#bar { position:fixed; top:52px; left:0; height:2px; background:var(--blue); z-index:200; width:0; transition:width .1s; }
+
+.toolbar { position:fixed; bottom:0; width:100%; z-index:100; background:rgba(220,232,240,.95); backdrop-filter:blur(20px); border-top:1px solid rgba(91,143,168,.2); padding:.5rem 1rem; display:flex; align-items:center; justify-content:center; gap:.6rem; }
+.tb-label { font-size:.65rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
+.tb-sep { width:1px; height:18px; background:rgba(91,143,168,.25); }
+.tb-btn { width:30px; height:30px; border-radius:50%; border:1.5px solid rgba(91,143,168,.25); background:white; color:var(--text-soft); cursor:pointer; font-size:.82rem; display:flex; align-items:center; justify-content:center; transition:all .2s; }
+.tb-btn:hover { border-color:var(--blue); color:var(--blue); }
+.tb-val { font-size:.75rem; color:var(--text-soft); font-family:'Inter',sans-serif; min-width:24px; text-align:center; }
+.bg-btn { width:26px; height:26px; border-radius:50%; border:2px solid transparent; cursor:pointer; transition:all .2s; font-size:.85rem; display:flex; align-items:center; justify-content:center; }
+.bg-btn.active { border-color:var(--blue); }
+
+.outer { padding:62px 1rem 56px; display:flex; justify-content:center; min-height:100vh; }
+.page { background:white; width:100%; max-width:640px; box-shadow:0 4px 32px rgba(45,55,72,.1); border-radius:.5rem; overflow:hidden; font-size:15px; }
+
+.article-meta { padding:1.8rem 1.8rem 1.4rem; border-bottom:1px solid #e8ecf2; background:#eef4f8; }
+.article-series { font-size:.65rem; letter-spacing:.2em; color:var(--blue); font-family:'Inter',sans-serif; text-transform:uppercase; font-weight:500; margin-bottom:.5rem; }
+.article-meta h1 { font-size:1.25rem; font-weight:600; line-height:1.3; color:var(--text); margin-bottom:.8rem; }
+.badges { display:flex; gap:.4rem; flex-wrap:wrap; }
+.badge { font-size:.62rem; padding:.18rem .65rem; border-radius:2rem; }
+.badge-cat { background:white; color:var(--blue); border:1px solid rgba(91,143,168,.25); }
+.badge-info { background:white; color:var(--text-mute); border:1px solid #e8ecf2; }
+
+.article-body { padding:1.8rem 1.8rem 2rem; line-height:1.95; transition:background .3s; --r-bg:#ffffff; --r-text:#2d3748; --r-soft:#5a6a7a; --r-mute:#8896a5; --r-accent:#5b8fa8; --r-border:#e8ecf2; --r-lede-bg:#eef4f8; background:var(--r-bg); color:var(--r-text); }
+.article-body.theme-rice { --r-bg:#f5f0e8; --r-text:#2c1e10; --r-soft:#5a4a38; --r-mute:#9a8a78; --r-accent:#8b6343; --r-border:#e0d8cc; --r-lede-bg:#ede6d8; }
+.article-body.theme-night { --r-bg:#1c2638; --r-text:#e8dfc8; --r-soft:#b0c4d0; --r-mute:#708090; --r-accent:#7aadc4; --r-border:rgba(255,255,255,.1); --r-lede-bg:rgba(122,173,196,.1); }
+.article-body.theme-eye { --r-bg:#eaf2e4; --r-text:#1a2810; --r-soft:#3a5030; --r-mute:#6a9070; --r-accent:#4a7a50; --r-border:#c8dcc0; --r-lede-bg:#ddeedd; }
+
+.lede { font-size:1em; color:var(--r-accent); line-height:1.9; margin-bottom:1.8rem; border-left:3px solid var(--r-accent); padding:.8rem 1rem; background:var(--r-lede-bg); border-radius:0 .3rem .3rem 0; }
+.lede strong { color:var(--r-accent); }
+.ch-title { font-size:1.05em; font-weight:600; color:var(--r-text); margin:1.8rem 0 .7rem; display:flex; align-items:center; gap:.5rem; }
+.ch-title::before { content:'▍'; color:var(--r-accent); font-size:.9em; }
+.prose p { font-size:1em; line-height:1.95; color:var(--r-soft); margin-bottom:.8rem; }
+.prose p strong { color:var(--r-text); font-weight:600; }
+
+.point-item { padding:.5rem 0 .5rem .9rem; border-left:2px solid var(--r-border); margin-bottom:.6rem; }
+.point-label { font-size:.75em; color:var(--r-accent); font-family:'Inter',sans-serif; font-weight:500; margin-bottom:.2rem; }
+.point-text { font-size:1em; color:var(--r-soft); line-height:1.8; }
+.point-text strong { color:var(--r-text); }
+
+.exercise-box { background:var(--r-lede-bg); border:1px solid var(--r-border); border-radius:.4rem; padding:1rem 1.2rem; margin-bottom:1.2rem; }
+.exercise-title { font-size:.78em; font-weight:600; color:var(--r-accent); margin-bottom:.8rem; letter-spacing:.05em; }
+.exercise-q { font-size:.88em; color:var(--r-text); font-weight:600; margin-bottom:.25rem; }
+.exercise-hint { font-size:.78em; color:var(--r-soft); line-height:1.8; margin-bottom:.8rem; padding-left:.8rem; border-left:2px solid var(--r-border); }
+
+.quote { padding:.5rem 0 .5rem .9rem; border-left:2px solid var(--r-accent); margin-bottom:.6rem; font-style:italic; color:var(--r-soft); font-size:1em; line-height:1.8; }
+.summary-text { text-align:center; font-size:1em; color:var(--r-text); line-height:2; padding:1.2rem 0; border-top:1px solid var(--r-border); border-bottom:1px solid var(--r-border); margin:1.5rem 0; }
+.summary-text strong { color:var(--r-accent); }
+
+.article-footer { border-top:1px solid #e8ecf2; padding:1.2rem 1.8rem; background:#eef4f8; }
+.next-link { display:flex; justify-content:space-between; align-items:center; text-decoration:none; margin-bottom:.8rem; }
+.next-label { font-size:.6rem; color:var(--text-mute); font-family:'Inter',sans-serif; letter-spacing:.12em; margin-bottom:.2rem; }
+.next-title { font-size:.9rem; color:var(--text); font-weight:600; }
+.next-sub { font-size:.72rem; color:var(--text-soft); margin-top:.15rem; }
+.next-arrow { font-size:1.1rem; color:var(--blue); }
+.tag-row { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.8rem; }
+.tag { font-size:.62rem; color:var(--text-mute); }
+.progress-wrap { display:flex; align-items:center; gap:.8rem; }
+.progress-label { font-size:.62rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
+.progress-bar { flex:1; height:2px; background:#e8ecf2; border-radius:1px; overflow:hidden; }
+.progress-fill { height:100%; background:var(--blue); width:20%; }
+.progress-num { font-size:.62rem; color:var(--text-mute); font-family:'Inter',sans-serif; }
 </style>
 </head>
 <body>
+
 <div id="bar"></div>
+
 <nav>
-  <a href="index.html" class="logo">📚 Noble 的<span>閱讀</span>與思考</a>
+  <div class="logo">📚 Noble 的<span>閱讀</span>與思考</div>
   <ul class="nav-links">
-    <li><a href="index.html">書架</a></li>
+    <li><a href="index.html">首頁</a></li>
     <li><a href="finance.html">財商專區</a></li>
-    <li><a href="about.html">關於 Noble</a></li>
+    <li><a href="index.html#about">關於</a></li>
   </ul>
 </nav>
 
-<div class="reader">
-  <div class="breadcrumb">
-    <a href="index.html" class="bc-link">首頁</a><span>›</span>
-    <a href="finance.html" class="bc-link">財商專區</a><span>›</span>
-    <span>#02</span>
-  </div>
+<div class="outer">
+  <div class="page">
 
-  <div class="article-series">💰 財商覺醒系列 #02</div>
-  <h1 class="article-title">先定義「夠了」，再談財富自由</h1>
-  <div class="article-badges">
-    <span class="badge badge-cat">財務目標</span>
-    <span class="badge badge-cat">夠了點</span>
-    <span class="badge badge-info">📖 約 5 分鐘</span>
-  </div>
-  <div class="article-lede">沒有終點的賽跑，跑再快也只是更累——<strong>財富自由不是一個借來的數字，而是你自己定義的生活選擇權。</strong></div>
-
-  <div class="chapter">
-    <div class="chapter-title">財富自由，不是一個數字</div>
-    <div class="prose">
-      <p>你有沒有聽過這樣的說法：「存到 3000 萬就可以退休了。」「被動收入超過支出，就是財富自由。」</p>
-      <p>這些定義沒有錯，但它們都跳過了一個最重要的前提——<strong>你的生活，需要多少？</strong></p>
-      <p>同樣是「財富自由」，一個月花 3 萬的人，和一個月花 15 萬的人，需要的資產規模差了整整五倍。如果你從來沒有認真算過自己的數字，你追求的「財富自由」，只是一個借來的夢，不是你自己的目標。</p>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">什麼是「夠了點」？</div>
-    <div class="prose">
-      <p>經濟學裡有個概念叫做「邊際效用遞減」——第一口蛋糕最好吃，第十口開始沒感覺。金錢也是一樣。收入從 3 萬到 6 萬，生活品質的改變是巨大的。從 30 萬到 60 萬，改變開始變得微乎其微。</p>
-    </div>
-    <div class="summary">
-      <p>「夠了點」，就是那個<strong>「再多也不會更快樂」的臨界線。</strong><br><span style="font-size:.88rem;color:var(--text-soft);">它因人而異，沒有人可以替你定義，但你必須自己找到它。</span></p>
-    </div>
-    <div class="prose">
-      <p>找到夠了點的人，會把多餘的資源投入真正有意義的事——時間、關係、健康、成長。找不到夠了點的人，會把一生都花在追趕一條不斷移動的終點線上。</p>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">社群媒體，如何偷走你的財務方向感</div>
-    <div class="prose">
-      <p>你本來對現在的生活還算滿意，滑了十分鐘 Instagram，突然覺得自己的車太舊、房子太小、假期太少。</p>
-      <p>這不是你真實的感受，這是<strong>別人的生活標準入侵了你的財務目標</strong>。社群媒體的演算法，只會把最光鮮亮麗的片段推到你眼前。你看到的，是別人精心篩選過的 5%，卻拿來跟自己完整的 100% 比較。</p>
-      <p>這場比賽，你從一開始就注定輸。唯一的出路，是退出這場比賽，回到自己的賽道上。</p>
-    </div>
-  </div>
-
-  <div class="chapter">
-    <div class="chapter-title">一個找到「夠了點」的練習</div>
-    <div class="points">
-      <div class="point">
-        <div class="point-num">問題 01</div>
-        <div class="point-text"><strong>我理想中的一天是什麼樣子？</strong><br>不是夢想中的豪華生活，而是讓你感到平靜滿足的普通一天。</div>
-      </div>
-      <div class="point">
-        <div class="point-num">問題 02</div>
-        <div class="point-text"><strong>維持這樣的生活，每個月需要多少錢？</strong><br>把房租、餐飲、娛樂、醫療、儲蓄都算進去。</div>
-      </div>
-      <div class="point">
-        <div class="point-num">問題 03</div>
-        <div class="point-text"><strong>如果我的被動收入能覆蓋這個數字，我還需要繼續追更多嗎？</strong><br>當你能清楚回答它，財務目標就從模糊的焦慮，變成了具體的方向。</div>
+    <div class="article-meta">
+      <div class="article-series">💰 財商覺醒系列 #02</div>
+      <h1>先定義「夠了」，再談財富自由</h1>
+      <div class="badges">
+        <span class="badge badge-cat">目標設定</span>
+        <span class="badge badge-cat">財務自由</span>
+        <span class="badge badge-info">📖 約 6 分鐘</span>
       </div>
     </div>
-  </div>
 
-  <div class="chapter">
-    <div class="chapter-title">知道「夠了」，才是真正的富有</div>
-    <div class="prose">
-      <p>財富自由的本質，不是帳戶裡有多少數字，而是你對自己生活有多少<strong>選擇權</strong>。</p>
-      <p>能選擇要不要工作，能選擇把時間給誰，能選擇停下來——這才是真正的自由。而這一切的起點，只是一個簡單卻少有人認真回答的問題：對你來說，「夠了」是什麼？</p>
+    <div class="article-body" id="body">
+
+      <div class="lede">
+        很多人努力存錢、拼命投資，卻從來沒有問過自己一個最根本的問題：「我到底在追求什麼？」<br>
+        <strong>沒有終點的賽跑，跑再快也只是更累。</strong>
+      </div>
+
+      <div class="ch-title">財富自由，不是一個數字</div>
+      <div class="prose">
+        <p>「存到 3000 萬就可以退休了。」「被動收入超過支出，就是財富自由。」這些定義沒有錯，但它們都跳過了一個最重要的前提——<strong>你的生活，需要多少？</strong></p>
+        <p>同樣是「財富自由」，一個月花 3 萬的人，和一個月花 15 萬的人，需要的資產規模差了整整五倍。如果你從來沒有認真算過自己的數字，你追求的「財富自由」，只是一個借來的夢，不是你自己的目標。</p>
+      </div>
+
+      <div class="ch-title">什麼是「夠了點」？</div>
+      <div class="prose">
+        <p>經濟學裡有個概念叫做「邊際效用遞減」。白話來說就是：第一口蛋糕最好吃，第十口開始沒感覺。金錢也是一樣。</p>
+        <p>收入從 3 萬到 6 萬，生活品質的改變是巨大的。從 30 萬到 60 萬，改變開始變得微乎其微。</p>
+      </div>
+
+      <div class="summary-text">「夠了點」，就是那個<strong>「再多也不會更快樂」</strong>的臨界線。<br>它因人而異，沒有人可以替你定義，但你必須自己找到它。</div>
+
+      <div class="prose">
+        <p>找到夠了點的人，會把多餘的資源投入真正有意義的事——時間、關係、健康、成長。找不到夠了點的人，會把一生都花在追趕一條不斷移動的終點線上。</p>
+      </div>
+
+      <div class="ch-title">社群媒體，如何偷走你的財務方向感</div>
+      <div class="prose">
+        <p>你本來對現在的生活還算滿意，滑了十分鐘 Instagram，突然覺得自己的車太舊、房子太小、假期太少。這不是你真實的感受，這是<strong>別人的生活標準入侵了你的財務目標</strong>。</p>
+        <p>社群媒體的演算法，只會把最光鮮亮麗的片段推到你眼前。你看到的，是別人精心篩選過的 5%，卻拿來跟自己完整的 100% 比較。這場比賽，你從一開始就注定輸。唯一的出路，是退出這場比賽，回到自己的賽道上。</p>
+      </div>
+
+      <div class="ch-title">一個找到「夠了點」的練習</div>
+      <div class="exercise-box">
+        <div class="exercise-title">📝 三個問題練習</div>
+        <div class="exercise-q">第一，我理想中的一天是什麼樣子？</div>
+        <div class="exercise-hint">不是夢想中的豪華生活，而是讓你感到平靜滿足的普通一天</div>
+        <div class="exercise-q">第二，維持這樣的生活，每個月需要多少錢？</div>
+        <div class="exercise-hint">把房租、餐飲、娛樂、醫療、儲蓄都算進去</div>
+        <div class="exercise-q">第三，如果被動收入能覆蓋這個數字，我還需要繼續追更多嗎？</div>
+        <div class="exercise-hint">當你能清楚回答這三個問題，財務目標就從「模糊的焦慮」變成了「具體的方向」</div>
+      </div>
+
+      <div class="ch-title">知道「夠了」，才是真正的富有</div>
+      <div class="prose">
+        <p>財富自由的本質，不是帳戶裡有多少數字，而是你對自己生活有多少<strong>選擇權</strong>。能選擇要不要工作，能選擇把時間給誰，能選擇停下來——這才是真正的自由。</p>
+      </div>
+
+      <div class="ch-title">本篇重點回顧</div>
+      <div class="quote">財富自由不是數字，是你自己定義的生活選擇權</div>
+      <div class="quote">找到你的「夠了點」，才有真正的財務終點</div>
+      <div class="quote">社群比較會扭曲你的財務目標，要學會退出那場比賽</div>
+      <div class="quote">用三個問題，把模糊的焦慮變成具體的方向</div>
+
     </div>
-  </div>
 
-  <div class="chapter">
-    <div class="chapter-title">本篇重點回顧</div>
-    <div class="quotes">
-      <div class="quote-item"><p>財富自由不是數字，是你自己定義的生活選擇權</p></div>
-      <div class="quote-item"><p>找到你的「夠了點」，才有真正的財務終點</p></div>
-      <div class="quote-item"><p>社群比較會扭曲你的財務目標，要學會退出那場比賽</p></div>
-      <div class="quote-item"><p>用三個問題，把模糊的焦慮變成具體的方向</p></div>
+    <div class="article-footer">
+      <a href="finance3.html" class="next-link">
+        <div>
+          <div class="next-label">下一篇</div>
+          <div class="next-title">四桶金：每一分錢，都該有它的任務</div>
+          <div class="next-sub">財商覺醒系列 #03</div>
+        </div>
+        <div class="next-arrow">→</div>
+      </a>
+      <div class="tag-row">
+        <span class="tag"># 財商覺醒</span>
+        <span class="tag"># 財務自由</span>
+        <span class="tag"># 夠了點</span>
+        <span class="tag"># Noble的閱讀與思考</span>
+      </div>
+      <div class="progress-wrap">
+        <span class="progress-label">閱讀進度</span>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <span class="progress-num">02 / 10</span>
+      </div>
     </div>
-  </div>
 
-  <a href="finance3.html" class="next-article">
-    <div>
-      <div class="next-label">下一篇</div>
-      <div class="next-title">四桶金：每一分錢，都該有它的任務</div>
-      <div class="next-sub">財商覺醒系列 #03</div>
-    </div>
-    <div class="next-arrow">→</div>
-  </a>
-
-  <div class="tag-row">
-    <span class="tag-item"># 財商覺醒</span>
-    <span class="tag-item"># 夠了點</span>
-    <span class="tag-item"># 財務自由</span>
-    <span class="tag-item"># 財務目標</span>
-    <span class="tag-item"># Noble的閱讀與思考</span>
-  </div>
-
-  <div class="ebook-footer">
-    <div>Noble 的閱讀與思考</div>
-    <div style="text-align:right;">
-      <div>02 of 10</div>
-      <div class="progress-bar"><div class="progress-fill" style="width:20%"></div></div>
-    </div>
   </div>
 </div>
 
-<footer><p>© 2025 <span>Noble 的閱讀與思考</span> · 知識書店</p></footer>
+<div class="toolbar">
+  <span class="tb-label">字體</span>
+  <button class="tb-btn" onclick="chg(-1)">A−</button>
+  <span class="tb-val" id="fsv">15</span>
+  <button class="tb-btn" onclick="chg(1)">A+</button>
+  <div class="tb-sep"></div>
+  <span class="tb-label">背景</span>
+  <button class="bg-btn active" id="bg-white" onclick="setTheme('')" style="background:#fff;border:2px solid #ccc;">白</button>
+  <button class="bg-btn" id="bg-rice" onclick="setTheme('theme-rice')" style="background:#f5f0e8;">米</button>
+  <button class="bg-btn" id="bg-night" onclick="setTheme('theme-night')" style="background:#1c2638;">🌙</button>
+  <button class="bg-btn" id="bg-eye" onclick="setTheme('theme-eye')" style="background:#eaf2e4;">🌿</button>
+</div>
+
 <script>
+let fs = 15;
+const body = document.getElementById('body');
+const themes = ['','theme-rice','theme-night','theme-eye'];
+const bgBtns = ['bg-white','bg-rice','bg-night','bg-eye'];
+function chg(d) {
+  fs = Math.min(20, Math.max(12, fs + d));
+  body.style.fontSize = fs + 'px';
+  document.getElementById('fsv').textContent = fs;
+}
+function setTheme(cls) {
+  body.className = 'article-body' + (cls ? ' ' + cls : '');
+  bgBtns.forEach((id,i) => document.getElementById(id).classList.toggle('active', themes[i] === cls));
+}
 window.addEventListener('scroll', () => {
   const t = document.documentElement.scrollHeight - window.innerHeight;
   document.getElementById('bar').style.width = (t > 0 ? window.scrollY/t*100 : 0) + '%';
